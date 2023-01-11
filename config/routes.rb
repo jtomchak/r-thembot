@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :users
+    resources :users
 
-      root to: "users#index"
-    end
-  devise_for :users
+    root to: 'users#index'
+  end
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   root 'public#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
