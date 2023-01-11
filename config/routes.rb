@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
+
+  # API Routes
+  namespace :api do
+    resources :users, only: %i[create]
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'public#index'
 end
